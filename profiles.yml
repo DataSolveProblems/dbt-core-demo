@@ -1,0 +1,24 @@
+jaffle_shop: # this needs to match the profile in your dbt_project.yml file
+  target: dev
+  outputs:
+    dev:
+      type: bigquery # database type
+      method: service-account # authentication method
+      keyfile: H:\PythonVenv\dbt-core-project-demo\jaffle_shop\bigquery_service_acct.json # service account file path
+      project: sql-for-bigquery # project id
+      dataset: Staging # Replace this with dbt_your_name, e.g. dbt_bilbo
+      threads: 1
+      timeout_seconds: 300
+      location: US
+      priority: interactive
+
+    prod:
+      type: bigquery
+      method: service-account
+      keyfile: H:\PythonVenv\dbt-core-project-demo\jaffle_shop\bigquery_service_acct.json
+      project: sql-for-bigquery
+      dataset: Prod
+      threads: 1
+      timeout_seconds: 300
+      location: US
+      priority: interactive     
