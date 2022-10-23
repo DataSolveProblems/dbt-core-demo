@@ -36,3 +36,12 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+
+seeds:
+  jaffle_shop:
+    SQL:
+      +quote_columns: true
+      +column_types:
+        # doesn't ncessary need to include all fields, but preferred for documentation purpose
+        num_comments: float
+        

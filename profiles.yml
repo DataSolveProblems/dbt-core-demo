@@ -1,5 +1,5 @@
 jaffle_shop: # this needs to match the profile in your dbt_project.yml file
-  target: dev
+  target: reddit
   outputs:
     dev:
       type: bigquery # database type
@@ -21,4 +21,15 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       threads: 1
       timeout_seconds: 300
       location: US
-      priority: interactive     
+      priority: interactive
+
+    reddit:
+      type: bigquery
+      method: service-account
+      keyfile: H:\PythonVenv\dbt-core-project-demo\jaffle_shop\bigquery_service_acct.json
+      project: sql-for-bigquery
+      dataset: Reddit
+      threads: 1
+      timeout_seconds: 300
+      location: US
+      priority: interactive      
